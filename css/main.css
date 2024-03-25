@@ -226,7 +226,7 @@ footer a:hover{
 }
 
 .products-preview .preview{
-    
+    text-align: center;
    display: none;
 align-items: center;
    justify-content: center;
