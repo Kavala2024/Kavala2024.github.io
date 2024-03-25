@@ -228,7 +228,7 @@ footer a:hover{
 .products-preview .preview{
     
    display: none;
-
+align-item:center;
    background: #fff;
    width: 20rem;
   height:35rem;
