@@ -105,5 +105,11 @@ function search() {
   document.querySelector("#open-popup").addEventListener("click",popup);
   document.querySelector("#open-popup1").addEventListener("click",popup);
   document.querySelector("#open-popup2").addEventListener("click",popup);
+document.querySelector("#open-popup3").addEventListener("click",popup);
+  document.querySelector("#open-popup4").addEventListener("click",popup);
+  document.querySelector("#open-popup5").addEventListener("click",popup);
+document.querySelector("#open-popup6").addEventListener("click",popup);
+  document.querySelector("#open-popup7").addEventListener("click",popup);
+  document.querySelector("#open-popup8").addEventListener("click",popup);
 
  
