@@ -65,9 +65,9 @@ body{
 
 
 /* header */
-#header{
-    background: url(../images/kavala-banner.PNG) top/cover no-repeat;
-}
+/*#header{
+    background: url(../images/kavala-banner.PNG) top/cover no-repeat ;
+}*/
 .carousel-inner h1{
     font-size: 50px;
     font-family: var(--lg-font);
