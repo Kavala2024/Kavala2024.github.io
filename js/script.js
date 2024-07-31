@@ -114,6 +114,7 @@ document.querySelector("#open-popup8").addEventListener("click",popup);
 document.querySelector("#open-popup9").addEventListener("click",popup);
 document.querySelector("#open-popup10").addEventListener("click",popup);
 document.querySelector("#open-popup11").addEventListener("click",popup);
+document.querySelector("#open-popup12").addEventListener("click",popup);
 
 
  
