@@ -109,7 +109,15 @@ document.querySelector("#open-popup3").addEventListener("click",popup);
   document.querySelector("#open-popup4").addEventListener("click",popup);
   document.querySelector("#open-popup5").addEventListener("click",popup);
 document.querySelector("#open-popup6").addEventListener("click",popup);
-document.querySelector("#open-popup7").addEventListener("click",popup);
+document.querySelector("#open-popup8").addEventListener("click",popup);
+document.querySelector("#open-popup9").addEventListener("click",popup);
+document.querySelector("#open-popup10").addEventListener("click",popup);
+document.querySelector("#open-popup11").addEventListener("click",popup);
+document.querySelector("#open-popup12").addEventListener("click",popup);
+document.querySelector("#open-popup13").addEventListener("click",popup);
+document.querySelector("#open-popup14").addEventListener("click",popup);
+document.querySelector("#open-popup15").addEventListener("click",popup);
+document.querySelector("#open-popup16").addEventListener("click",popup);
  
 
  
