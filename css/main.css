@@ -109,6 +109,7 @@ body{
     border-radius: 50%;
 }
 
+
 /* special */
 .special-img span{
     top: 20px;
@@ -126,11 +127,13 @@ body{
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+
 }
 .shrink-img:hover{
     -webkit-transform: scale(.9);
         -ms-transform: scale(.9);
             transform: scale(.9);
+            min-height: 40px;
 
 }
 .expond{
