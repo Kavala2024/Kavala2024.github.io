@@ -320,6 +320,9 @@ align-items: center;
     object-fit: contain;
     
  }
+ .open-popup{
+    min-width: none;
+ }
  .popup.active {
     top: 0px;
     transition:top 0ms ease-in-out 0ms;
@@ -347,3 +350,5 @@ align-items: center;
     width: 600px;
     height: 300px;
   }
+
+ 

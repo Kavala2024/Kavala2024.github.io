@@ -85,6 +85,8 @@ function search() {
   }
   }
   }
+//toggleme
+
 
   //poppup
   function createPopup(id){
@@ -102,37 +104,14 @@ function search() {
     return openPopup;
   }
   let popup =createPopup("#popup");
-  document.querySelector("#open-popup").addEventListener("click",popup);
-  document.querySelector("#open-popup1").addEventListener("click",popup);
-  document.querySelector("#open-popup2").addEventListener("click",popup);
-document.querySelector("#open-popup3").addEventListener("click",popup);
-  document.querySelector("#open-popup4").addEventListener("click",popup);
-  document.querySelector("#open-popup5").addEventListener("click",popup);
-document.querySelector("#open-popup6").addEventListener("click",popup);
-document.querySelector("#open-popup8").addEventListener("click",popup);
-document.querySelector("#open-popup9").addEventListener("click",popup);
-document.querySelector("#open-popup10").addEventListener("click",popup);
-document.querySelector("#open-popup11").addEventListener("click",popup);
-document.querySelector("#open-popup12").addEventListener("click",popup);
-document.querySelector("#open-popup13").addEventListener("click",popup);
-document.querySelector("#open-popup14").addEventListener("click",popup);
-document.querySelector("#open-popup15").addEventListener("click",popup);
-document.querySelector("#open-popup16").addEventListener("click",popup);
-document.querySelector("#open-popup17").addEventListener("click",popup);
-document.querySelector("#open-popup18").addEventListener("click",popup);
-document.querySelector("#open-popup19").addEventListener("click",popup);
-document.querySelector("#open-popup20").addEventListener("click",popup);
-document.querySelector("#open-popup21").addEventListener("click",popup);
-document.querySelector("#open-popup22").addEventListener("click",popup);
-document.querySelector("#open-popup23").addEventListener("click",popup);
-document.querySelector("#open-popup24").addEventListener("click",popup);
-document.querySelector("#open-popup25").addEventListener("click",popup);
-document.querySelector("#open-popup26").addEventListener("click",popup);
-document.querySelector("#open-popup27").addEventListener("click",popup);
-document.querySelector("#open-popup28").addEventListener("click",popup);
+document.querySelectorAll('open-popup').addEventListener("click",popup);
 
 
+//popup 2
 
+function toggle(){
+  document.getElementById("popup").classList.add("active");
+}
 
 
  
