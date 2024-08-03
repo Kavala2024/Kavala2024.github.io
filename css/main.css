@@ -246,6 +246,10 @@ align-items: center;
     height: 16rem;
     object-fit: contain;
  }
+ .video{
+    height: 16rem;
+    object-fit: contain;
+ }
 
  .container {
     overflow: hidden;
