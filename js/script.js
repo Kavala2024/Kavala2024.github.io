@@ -1,9 +1,7 @@
 
 //product-view
-
 let preveiwContainer = document.querySelector('.products-preview');
 let previewBox = preveiwContainer.querySelectorAll('.preview');
-
 document.querySelectorAll('.products-container .product').forEach(product =>{
   product.onclick = () =>{
     preveiwContainer.style.display = 'flex';
@@ -16,7 +14,6 @@ document.querySelectorAll('.products-container .product').forEach(product =>{
     });
   };
 });
-
 previewBox.forEach(close =>{
   close.querySelector('.close').onclick = () =>{
     close.classList.remove('kactive');
@@ -24,7 +21,6 @@ previewBox.forEach(close =>{
   };
   
 });
-
 //catagory filter
 filterSelection("all")
 function filterSelection(c) {
@@ -36,7 +32,6 @@ function filterSelection(c) {
     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
   }
 }
-
 function w3AddClass(element, name) {
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
@@ -45,7 +40,6 @@ function w3AddClass(element, name) {
     if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
   }
 }
-
 function w3RemoveClass(element, name) {
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
@@ -57,7 +51,6 @@ function w3RemoveClass(element, name) {
   }
   element.className = arr1.join(" ");
 }
-
 // Add active class to the current button (highlight it)
 var btnContainer = document.getElementById("myBtnContainer");
 var btns = btnContainer.getElementsByClassName("butn");
@@ -85,9 +78,39 @@ function search() {
   }
   }
   }
-//toggleme
+//popup 2
+function toggle(){
+  document.getElementById("popup").classList.add("active");
+}
+//link product
+const productid = window.location.search;
 
-
+const urlParams=new URLSearchParams(productid);
+const pid= urlParams.get('id');
+if(typeof pid === 'string'||pid instanceof String){
+function viewProduct(){
+  let preveiwContainer = document.querySelector('.products-preview');
+let previewBox = preveiwContainer.querySelectorAll('.preview');
+document.querySelectorAll('.products-container .product').forEach(product =>{
+  preveiwContainer.style.display='flex';
+  let name = pid;
+    previewBox.forEach(preview =>{
+      let target = preview.getAttribute('data-target');
+      if(name == target){
+        preview.classList.add('kactive');
+      }
+    });
+})
+previewBox.forEach(close =>{
+  close.querySelector('.close').onclick = () =>{
+    close.classList.remove('kactive');
+    preveiwContainer.style.display = 'none';
+  };
+  
+});
+}
+viewProduct();
+}
   //poppup
   function createPopup(id){
     let popupNode = document.querySelector(id);
@@ -104,14 +127,5 @@ function search() {
     return openPopup;
   }
   let popup =createPopup("#popup");
-document.querySelectorAll('open-popup').addEventListener("click",popup);
-
-
-//popup 2
-
-function toggle(){
-  document.getElementById("popup").classList.add("active");
-}
-
 
  
