@@ -1,131 +1,94 @@
 
-//product-view
-let preveiwContainer = document.querySelector('.products-preview');
-let previewBox = preveiwContainer.querySelectorAll('.preview');
-document.querySelectorAll('.products-container .product').forEach(product =>{
-  product.onclick = () =>{
-    preveiwContainer.style.display = 'flex';
-    let name = product.getAttribute('data-name');
-    previewBox.forEach(preview =>{
-      let target = preview.getAttribute('data-target');
-      if(name == target){
-        preview.classList.add('kactive');
-      }
-    });
-  };
-});
-previewBox.forEach(close =>{
-  close.querySelector('.close').onclick = () =>{
-    close.classList.remove('kactive');
-    preveiwContainer.style.display = 'none';
-  };
-  
-});
-//catagory filter
-filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
-}
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+//logo fade
+const banner= document.getElementById('banner');
+const brand=document.getElementById('brand');
+const observes = new IntersectionObserver((entries)=>{
+  entries.forEach(entry =>{
+    if(entry.isIntersecting){
+      brand.classList.add('hidden1')
     }
-  }
-  element.className = arr1.join(" ");
-}
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("butn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("hactive");
-    current[0].className = current[0].className.replace(" hactive", "");
-    this.className += " hactive";
+    else{
+      brand.classList.remove('hidden1')
+      
+    };
   });
-}
-//Search//
-function search() {
-  let filter = document.getElementById('myinput').value.toUpperCase();
-  let item = document.querySelectorAll('.target');
-  let l = document.getElementsByTagName('p');
-  for(var i = 0;i<=l.length;i++){
-  let a=item[i].getElementsByTagName('p')[0];
-  let value=a.innerHTML || a.innerText || a.textContent;
-  if(value.toUpperCase().indexOf(filter) > -1) {
-  item[i].style.display="";
-  }
-  else
-  {
-  item[i].style.display="none";
-  }
-  }
-  }
-//popup 2
-function toggle(){
-  document.getElementById("popup").classList.add("active");
-}
-//link product
-const productid = window.location.search;
-
-const urlParams=new URLSearchParams(productid);
-const pid= urlParams.get('id');
-if(typeof pid === 'string'||pid instanceof String){
-function viewProduct(){
-  let preveiwContainer = document.querySelector('.products-preview');
-let previewBox = preveiwContainer.querySelectorAll('.preview');
-document.querySelectorAll('.products-container .product').forEach(product =>{
-  preveiwContainer.style.display='flex';
-  let name = pid;
-    previewBox.forEach(preview =>{
-      let target = preview.getAttribute('data-target');
-      if(name == target){
-        preview.classList.add('kactive');
+});
+observes.observe(banner);
+//fade text
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry)=>{
+        console.log(entry)
+        if (entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+        else{
+          entry.target.classList.remove('show');
       }
     });
-})
-previewBox.forEach(close =>{
-  close.querySelector('.close').onclick = () =>{
-    close.classList.remove('kactive');
-    preveiwContainer.style.display = 'none';
-  };
-  
 });
-}
-viewProduct();
-}
-  //poppup
-  function createPopup(id){
-    let popupNode = document.querySelector(id);
-    let overlay = popupNode.querySelector(".overlay");
-    let closeBtn = popupNode.querySelector(".close-btn");
-    function openPopup(){
-      popupNode.classList.add("active");
-    }
-    function closePopup(){
-      popupNode.classList.remove("active");
-    }
-    overlay.addEventListener("click",closePopup);
-    closeBtn.addEventListener("click",closePopup);
-    return openPopup;
-  }
-  let popup =createPopup("#popup");
 
- 
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+//courosel
+
+var TrandingSlider = new Swiper('.tranding-slider', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 2.5,
+    },
+    autoplay: {
+      delay: 2000, // Delay between slides in ms (3 seconds in this case)
+      disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  });
+// countdown
+// Set the target date (24th October 2024)
+const targetDate = new Date("2024-10-24T09:00:00").getTime();
+
+// Function to update the countdown
+function updateCountdown() {
+    const now = new Date().getTime();
+    const timeRemaining = targetDate - now;
+
+    // Time calculations for days, hours, minutes, seconds, and milliseconds
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    const milliseconds = timeRemaining % 100;
+
+    // Display the result in the corresponding elements
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+    document.getElementById("milliseconds").innerText = milliseconds;
+
+    // If the countdown is over, display a message
+    if (timeRemaining < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("countdown").innerHTML = "Countdown Finished!";
+    }
+}
+
+// Update the countdown every 10 milliseconds
+const countdownInterval = setInterval(updateCountdown, 10);
+
+
+
